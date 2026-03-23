@@ -832,6 +832,57 @@
       .mockup-col-right { width: 100%; min-width: 0; }
     }
 
+    /* ── 比較表格 ── */
+    .compare-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .compare-table-wrap table {
+      width: 100%; border-collapse: collapse;
+    }
+    .compare-table-wrap th {
+      padding: 14px 20px;
+      font-size: 13px; font-weight: 700;
+      text-align: left;
+    }
+    .compare-table-wrap th:first-child {
+      background: var(--primary-light); color: var(--primary);
+    }
+    .compare-table-wrap th:nth-child(2) {
+      background: #fff0f0; color: var(--accent);
+    }
+    [data-theme="dark"] .compare-table-wrap th:nth-child(2) {
+      background: #3d1a1a; color: #ff8080;
+    }
+    .compare-table-wrap th:nth-child(3) {
+      background: var(--success-light); color: #0d6e3f;
+    }
+    [data-theme="dark"] .compare-table-wrap th:nth-child(3) {
+      color: #55efc4;
+    }
+    .compare-table-wrap td {
+      padding: 12px 20px;
+      font-size: 14px; color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+    .compare-table-wrap tr:hover td { background: var(--primary-light); }
+    .compare-table-wrap td:first-child { font-weight: 600; color: var(--text); }
+    .highlight-quote {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -862,6 +913,9 @@
   </div>
   <nav>
     <div class="nav-label">課程目錄</div>
+    <a href="#why-desktop" onclick="closeSidebar()">
+      <span class="nav-emoji">💡</span> 為什麼在電腦端？
+    </a>
     <a href="#install" onclick="closeSidebar()">
       <span class="nav-emoji">🔽</span> 軟體安裝
       <span class="nav-num">1</span>
@@ -887,7 +941,7 @@
       <span class="nav-num">6</span>
     </a>
     <a href="#cases" onclick="closeSidebar()">
-      <span class="nav-emoji">💡</span> 應用案例
+      <span class="nav-emoji">🎯</span> 應用案例
       <span class="nav-num">7</span>
     </a>
   </nav>
@@ -899,14 +953,92 @@
   <!-- Hero Banner -->
   <div class="hero">
     <div class="hero-tag">Google Antigravity × 媒體工作者教學指南</div>
-    <h1>用 AI 打造你的<br>內容生產力</h1>
-    <p>從安裝到實戰，一份專為媒體人設計的完整上手指南。寫文稿、產圖 Prompt、影片腳本、社群貼文，全部交給 AI。</p>
+    <h1>讓 AI 住進你的電腦<br>從聊天到共事</h1>
+    <p>不再只是問 AI 問題——讓它直接讀你的檔案、寫你的稿件、打造你的專屬工作流程。這是一份專為媒體人設計的完整上手指南。</p>
     <div class="hero-badges">
       <span class="hero-badge">🏙️ 城邦媒體編輯</span>
       <span class="hero-badge">✏️ 文字記者</span>
       <span class="hero-badge">🎬 影音企劃</span>
     </div>
   </div>
+
+  <!-- 為什麼在電腦端用 AI？ -->
+  <section id="why-desktop" class="section">
+    <div class="section-header">
+      <div class="section-icon">💡</div>
+      <div>
+        <h2>為什麼要在電腦端用 AI？</h2>
+        <div class="section-sub">從「問 AI 問題」升級到「讓 AI 在你電腦裡幹活」</div>
+      </div>
+    </div>
+
+    <p style="font-size:14px; color:var(--text-secondary); line-height:1.8; margin-bottom:20px;">
+      你可能已經用過 ChatGPT 或 Gemini 的網頁版。但在<strong>電腦端</strong>使用 AI，本質上是完全不同的體驗——
+    </p>
+
+    <div class="compare-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>瀏覽器 AI（ChatGPT、Gemini）</th>
+            <th>電腦端 AI（Antigravity）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>本質</td>
+            <td>一問一答的對話</td>
+            <td>AI 持續在你電腦上執行任務</td>
+          </tr>
+          <tr>
+            <td>檔案存取</td>
+            <td>手動上傳 / 下載</td>
+            <td>直接讀寫你電腦裡的檔案</td>
+          </tr>
+          <tr>
+            <td>工作上下文</td>
+            <td>每次對話都重來</td>
+            <td>自動理解你的整個專案</td>
+          </tr>
+          <tr>
+            <td>累積性</td>
+            <td>規則每次要重講</td>
+            <td>Rules 設定一次，永久生效</td>
+          </tr>
+          <tr>
+            <td>產出方式</td>
+            <td>給你文字，你自己複製貼上</td>
+            <td>直接幫你建檔、改檔、存檔</td>
+          </tr>
+          <tr>
+            <td>資料歸屬</td>
+            <td>在雲端伺服器上</td>
+            <td>在你的電腦上，你擁有所有資料</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-quote">
+      「瀏覽器 AI 像問顧問意見；電腦端 AI 像雇了一個人在你電腦裡幹活。」
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>🔄 從聊天到共事</h3>
+        <p>不再是一次性的問答，而是建立可累積的工作流程——你教 AI 一次規則，它每次都記得。</p>
+      </div>
+      <div class="card">
+        <h3>🏗️ 不只用工具，還能造工具</h3>
+        <p>AI 不只幫你寫稿，還能幫你打造專屬的自動化工具：改稿流程、格式轉換器、批次處理腳本。</p>
+      </div>
+      <div class="card">
+        <h3>🎯 你指揮，它執行</h3>
+        <p>你是策劃者，AI 是執行者。用自然語言下指令，AI 直接在你的檔案上操作，不需要複製貼上。</p>
+      </div>
+    </div>
+  </section>
 
   <!-- SECTION 1：軟體安裝 -->
   <section id="install" class="section">
