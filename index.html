@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Antigravity 教學指南</title>
+  <title>Google Antigravity × 媒體工作者教學指南</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -17,11 +17,15 @@
       --primary: #6c5ce7;
       --primary-light: #ede9ff;
       --accent: #ff6b6b;
+      --accent-light: #fff0f0;
+      --success: #00b894;
+      --success-light: #d4f7e7;
       --border: #e2e4f0;
       --shadow: 0 2px 8px rgba(0,0,0,0.06);
-      --shadow-hover: 0 6px 20px rgba(108,92,231,0.15);
-      --sidebar-width: 240px;
+      --shadow-hover: 0 8px 24px rgba(108,92,231,0.18);
+      --sidebar-width: 248px;
       --radius: 16px;
+      --code-bg: #f0f1f8;
     }
     [data-theme="dark"] {
       --bg: #0f0f1a;
@@ -31,9 +35,13 @@
       --primary: #9b8af4;
       --primary-light: #2a2545;
       --accent: #ff8080;
+      --accent-light: #3d1a1a;
+      --success: #55efc4;
+      --success-light: #0d3d24;
       --border: #2a2a45;
       --shadow: 0 2px 8px rgba(0,0,0,0.3);
-      --shadow-hover: 0 6px 20px rgba(155,138,244,0.2);
+      --shadow-hover: 0 8px 24px rgba(155,138,244,0.22);
+      --code-bg: #12122a;
     }
 
     /* ── Reset & Base ── */
@@ -49,6 +57,7 @@
     }
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    ul { list-style: none; }
 
     /* ── 側邊欄 ── */
     #sidebar {
@@ -72,18 +81,19 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .sidebar-brand .brand-icon {
       width: 36px; height: 36px;
       background: linear-gradient(135deg, #4285f4, #6c5ce7);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 18px; font-weight: 800;
+      color: white; font-size: 15px; font-weight: 800;
+      flex-shrink: 0;
     }
     .sidebar-brand .brand-name {
-      font-size: 13px; font-weight: 700;
-      color: var(--text); line-height: 1.3;
+      font-size: 12px; font-weight: 700;
+      color: var(--text); line-height: 1.4;
     }
     .theme-toggle {
       width: 100%;
@@ -91,26 +101,27 @@
       border: none; border-radius: 8px;
       color: var(--primary);
       font-size: 13px; font-weight: 600;
-      padding: 7px 12px;
+      padding: 8px 12px;
       cursor: pointer;
       display: flex; align-items: center; gap: 6px;
       transition: opacity 0.2s;
     }
     .theme-toggle:hover { opacity: 0.8; }
+
     nav { padding: 16px 12px; flex: 1; }
     nav .nav-label {
-      font-size: 11px; font-weight: 700;
+      font-size: 10px; font-weight: 700;
       color: var(--text-secondary);
-      letter-spacing: 0.08em;
-      padding: 0 8px 8px;
+      letter-spacing: 0.1em;
+      padding: 0 8px 10px;
       text-transform: uppercase;
     }
     nav a {
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 9px;
       padding: 9px 10px;
       border-radius: 10px;
       color: var(--text-secondary);
-      font-size: 14px; font-weight: 500;
+      font-size: 13.5px; font-weight: 500;
       transition: all 0.15s;
       text-decoration: none;
       margin-bottom: 2px;
@@ -119,14 +130,16 @@
       background: var(--primary-light);
       color: var(--primary);
     }
+    nav a .nav-emoji { font-size: 15px; flex-shrink: 0; }
     nav a .nav-num {
-      width: 22px; height: 22px;
+      width: 20px; height: 20px;
       background: var(--primary);
       color: white;
       border-radius: 50%;
-      font-size: 12px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+      margin-left: auto;
     }
     nav a:hover .nav-num, nav a.active .nav-num {
       background: var(--primary);
@@ -136,47 +149,49 @@
     #main {
       margin-left: var(--sidebar-width);
       flex: 1;
-      padding: 40px 48px;
+      padding: 40px 52px;
       max-width: calc(100% - var(--sidebar-width));
     }
 
-    /* ── Hero ── */
+    /* ── Hero Banner ── */
     .hero {
-      background: linear-gradient(135deg, #4285f4 0%, #6c5ce7 60%, #a29bfe 100%);
+      background: linear-gradient(135deg, #4285f4 0%, #6c5ce7 55%, #a29bfe 100%);
       border-radius: var(--radius);
-      padding: 40px 36px;
+      padding: 44px 40px;
       color: white;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       position: relative;
       overflow: hidden;
     }
     .hero::after {
       content: 'AG';
-      position: absolute; right: 32px; top: 50%;
+      position: absolute; right: 40px; top: 50%;
       transform: translateY(-50%);
-      font-size: 96px; font-weight: 900;
-      opacity: 0.12; letter-spacing: -4px;
+      font-size: 110px; font-weight: 900;
+      opacity: 0.1; letter-spacing: -6px;
+      pointer-events: none;
     }
     .hero-tag {
       display: inline-block;
       background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 20px;
       padding: 4px 14px;
       font-size: 12px; font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       letter-spacing: 0.04em;
     }
     .hero h1 {
-      font-size: 28px; font-weight: 800;
-      line-height: 1.3; margin-bottom: 10px;
+      font-size: 30px; font-weight: 800;
+      line-height: 1.25; margin-bottom: 10px;
     }
     .hero p {
       font-size: 15px; opacity: 0.9;
-      line-height: 1.6; max-width: 520px;
+      line-height: 1.7; max-width: 500px;
+      margin-bottom: 20px;
     }
     .hero-badges {
-      display: flex; gap: 10px;
-      margin-top: 20px; flex-wrap: wrap;
+      display: flex; gap: 10px; flex-wrap: wrap;
     }
     .hero-badge {
       background: rgba(255,255,255,0.15);
@@ -188,31 +203,33 @@
 
     /* ── Section ── */
     .section {
-      margin-bottom: 52px;
-      scroll-margin-top: 24px;
+      margin-bottom: 60px;
+      scroll-margin-top: 28px;
     }
     .section-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
     }
     .section-icon {
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       background: var(--primary-light);
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      font-size: 22px;
       flex-shrink: 0;
     }
     .section h2 {
-      font-size: 20px; font-weight: 800;
+      font-size: 21px; font-weight: 800;
       color: var(--text);
     }
     .section-sub {
       font-size: 13px; color: var(--text-secondary);
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    /* ── Card ── */
+    /* ── Generic Card ── */
     .card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -223,56 +240,67 @@
     }
     .card:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .card h3 {
       font-size: 15px; font-weight: 700;
-      margin-bottom: 8px; color: var(--text);
-      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 10px; color: var(--text);
     }
     .card p {
       font-size: 14px; color: var(--text-secondary);
-      line-height: 1.65;
+      line-height: 1.7;
+    }
+    .card ul li {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.7; padding: 2px 0;
+      padding-left: 1em; position: relative;
+    }
+    .card ul li::before {
+      content: '·'; position: absolute; left: 0;
+      color: var(--primary); font-weight: 700;
     }
 
     /* ── 步驟卡片 ── */
-    .steps {
-      display: flex; flex-direction: column; gap: 16px;
-    }
+    .steps { display: flex; flex-direction: column; gap: 16px; }
     .step {
-      display: flex; gap: 16px; align-items: flex-start;
+      display: flex; gap: 18px; align-items: flex-start;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 24px;
+      padding: 22px 26px;
       box-shadow: var(--shadow);
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .step:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
     .step-num {
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       background: var(--primary);
       color: white;
       border-radius: 50%;
-      font-size: 15px; font-weight: 800;
+      font-size: 16px; font-weight: 800;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
     .step-content h3 {
       font-size: 15px; font-weight: 700;
-      margin-bottom: 6px; color: var(--text);
+      margin-bottom: 8px; color: var(--text);
     }
     .step-content p {
       font-size: 14px; color: var(--text-secondary);
-      line-height: 1.65;
+      line-height: 1.7;
     }
     .step-content code {
       background: var(--primary-light);
@@ -283,8 +311,419 @@
       font-family: 'SF Mono', 'Fira Code', monospace;
     }
 
-    /* ── 系統需求表格 ── */
-    .req-table {
+    /* ── 系統需求小卡 ── */
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .req-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .req-icon { font-size: 28px; flex-shrink: 0; }
+    .req-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .req-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── Info / Tip / Success Box ── */
+    .info-box {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .info-box strong { color: var(--primary); }
+
+    .success-box {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    [data-theme="dark"] .success-box { color: var(--text); }
+
+    .tip-box {
+      background: #fff8e1;
+      border-left: 4px solid #ffb300;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #5a4000;
+      line-height: 1.7;
+    }
+    [data-theme="dark"] .tip-box {
+      background: #2d2000;
+      color: #ffd54f;
+    }
+
+    /* ── 步驟 Banner（橫向路徑） ── */
+    .step-path {
+      display: flex; align-items: center;
+      gap: 0; flex-wrap: wrap;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 18px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+    .step-path-item {
+      display: flex; align-items: center; gap: 6px;
+      color: var(--text-secondary);
+      padding: 4px 0;
+    }
+    .step-path-arrow {
+      color: var(--primary); font-size: 16px; padding: 0 10px;
+      flex-shrink: 0;
+    }
+    .step-path-item strong { color: var(--text); font-weight: 600; }
+
+    /* ── Code Block ── */
+    .code-block-wrap {
+      position: relative;
+      margin: 16px 0;
+    }
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--primary);
+      color: white;
+      border: none; border-radius: 8px;
+      padding: 5px 14px;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    /* ── 三欄 Mockup ── */
+    .mockup-wrap {
+      background: #1a1a2e;
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+    .mockup-titlebar {
+      display: flex; align-items: center; gap: 7px;
+      padding: 0 4px 10px;
+    }
+    .mockup-dot {
+      width: 11px; height: 11px; border-radius: 50%;
+    }
+    .mockup-dot:nth-child(1) { background: #ff5f56; }
+    .mockup-dot:nth-child(2) { background: #ffbd2e; }
+    .mockup-dot:nth-child(3) { background: #27c93f; }
+    .mockup-cols {
+      display: flex; gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 260px;
+    }
+    .mockup-col-left {
+      width: 160px; min-width: 160px;
+      background: #252540;
+      padding: 14px 12px;
+      display: flex; flex-direction: column; gap: 4px;
+      flex-shrink: 0;
+    }
+    .mockup-col-left .col-label {
+      font-size: 10px; font-weight: 700;
+      color: #9b8af4;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #3a3a5c;
+    }
+    .mockup-file {
+      font-size: 11px; color: #aaaacc;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: default;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .mockup-file.active { background: #6c5ce7; color: white; }
+    .mockup-file-indent { padding-left: 20px !important; }
+    .mockup-col-main {
+      flex: 1;
+      background: #ffffff;
+      padding: 16px 18px;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .mockup-col-main { background: #12122a; }
+    .mockup-col-main .col-label {
+      font-size: 10px; font-weight: 700;
+      color: #6c5ce7;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e2e4f0;
+    }
+    [data-theme="dark"] .mockup-col-main .col-label { border-color: #2a2a45; }
+    .mockup-editor-line {
+      font-family: 'SF Mono', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #1a1a2e;
+    }
+    [data-theme="dark"] .mockup-editor-line { color: #c8c8e8; }
+    .mockup-editor-line.heading { color: #6c5ce7; font-weight: 700; font-size: 13px; }
+    [data-theme="dark"] .mockup-editor-line.heading { color: #9b8af4; }
+    .mockup-editor-line.gray { color: #9999bb; }
+    .mockup-cursor {
+      display: inline-block;
+      width: 2px; height: 13px;
+      background: #6c5ce7;
+      animation: blink 1.2s infinite;
+      vertical-align: middle;
+      margin-left: 1px;
+    }
+    @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+    .mockup-col-right {
+      width: 200px; min-width: 200px;
+      background: #ede9ff;
+      padding: 14px 12px;
+      display: flex; flex-direction: column; gap: 8px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .mockup-col-right { background: #2a2545; }
+    .mockup-col-right .col-label {
+      font-size: 10px; font-weight: 700;
+      color: #6c5ce7;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0c9ff;
+    }
+    [data-theme="dark"] .mockup-col-right .col-label { border-color: #3a3060; }
+    .mockup-bubble {
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 11px;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+    .mockup-bubble.user {
+      background: #6c5ce7; color: white;
+      align-self: flex-end; margin-left: auto;
+      border-bottom-right-radius: 3px;
+    }
+    .mockup-bubble.ai {
+      background: white; color: #1a1a2e;
+      border: 1px solid #d0c9ff;
+      border-bottom-left-radius: 3px;
+    }
+    [data-theme="dark"] .mockup-bubble.ai { background: #1a1a2e; color: #e8e8f5; border-color: #3a3060; }
+
+    /* ── 操作流程橫向箭頭 ── */
+    .flow-steps {
+      display: flex; align-items: center;
+      justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 24px 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .flow-step-item {
+      text-align: center; flex: 1; min-width: 110px;
+    }
+    .flow-step-icon {
+      width: 52px; height: 52px;
+      background: var(--primary-light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 10px;
+    }
+    .flow-step-title {
+      font-size: 14px; font-weight: 700;
+      color: var(--text);
+    }
+    .flow-step-arrow {
+      font-size: 22px; color: var(--primary);
+      padding: 0 12px; flex-shrink: 0;
+      padding-bottom: 24px;
+    }
+
+    /* ── 延伸模組卡片 ── */
+    .ext-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .ext-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .ext-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .ext-icon { font-size: 26px; flex-shrink: 0; }
+    .ext-info { flex: 1; }
+    .ext-name {
+      font-size: 14px; font-weight: 700;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .ext-desc {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+    }
+    .ext-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      padding: 2px 9px; border-radius: 12px;
+      margin-top: 6px;
+    }
+    .ext-tag.required { background: #ffe0e0; color: var(--accent); }
+    .ext-tag.recommend { background: var(--primary-light); color: var(--primary); }
+    .ext-tag.advanced { background: #ebebeb; color: #666; }
+    [data-theme="dark"] .ext-tag.required { background: #3d1010; color: #ff8080; }
+    [data-theme="dark"] .ext-tag.advanced { background: #2a2a3a; color: #9999bb; }
+
+    /* ── Rules/Workflows 比較卡片 ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .compare-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+    }
+    .compare-card.primary { border-color: var(--primary); }
+    .compare-card.accent { border-color: var(--accent); }
+    .compare-card-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 700;
+      padding: 3px 12px; border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .compare-card.primary .compare-card-badge { background: var(--primary-light); color: var(--primary); }
+    .compare-card.accent .compare-card-badge { background: var(--accent-light); color: var(--accent); }
+    .compare-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
+    .compare-card ul li {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.75; padding-left: 1.2em;
+      position: relative;
+    }
+    .compare-card ul li::before {
+      content: '—'; position: absolute; left: 0;
+      color: var(--text-secondary); font-size: 12px;
+    }
+
+    /* ── Workflow 展開卡片 ── */
+    .workflow-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 14px;
+      transition: box-shadow 0.2s;
+    }
+    .workflow-card:hover { box-shadow: var(--shadow-hover); }
+    .workflow-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+    }
+    .workflow-header:hover { background: var(--primary-light); }
+    .workflow-title-row {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .workflow-icon { font-size: 22px; }
+    .workflow-title { font-size: 15px; font-weight: 700; }
+    .workflow-trigger {
+      font-size: 12px; font-weight: 600;
+      background: var(--code-bg);
+      color: var(--primary);
+      padding: 3px 10px; border-radius: 6px;
+      font-family: 'SF Mono', monospace;
+      flex-shrink: 0;
+    }
+    .workflow-chevron {
+      color: var(--text-secondary); font-size: 16px;
+      transition: transform 0.2s; flex-shrink: 0;
+    }
+    .workflow-card.open .workflow-chevron { transform: rotate(180deg); }
+    .workflow-body {
+      display: none;
+      padding: 0 22px 20px;
+      border-top: 1px solid var(--border);
+    }
+    .workflow-card.open .workflow-body { display: block; }
+    .workflow-body ol {
+      padding-top: 16px; padding-left: 0; list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .workflow-body ol li {
+      font-size: 14px; color: var(--text-secondary);
+      display: flex; gap: 10px; align-items: flex-start;
+      line-height: 1.6;
+    }
+    .workflow-body ol li .wf-num {
+      min-width: 24px; height: 24px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Skills 差異表格 ── */
+    .diff-table-wrap {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -292,59 +731,30 @@
       box-shadow: var(--shadow);
       margin-bottom: 24px;
     }
-    .req-table table {
+    .diff-table-wrap table {
       width: 100%; border-collapse: collapse;
     }
-    .req-table th {
+    .diff-table-wrap th {
       background: var(--primary-light);
       color: var(--primary);
       font-size: 13px; font-weight: 700;
-      padding: 12px 20px;
+      padding: 13px 20px;
       text-align: left;
     }
-    .req-table td {
+    .diff-table-wrap td {
       padding: 12px 20px;
       font-size: 14px; color: var(--text-secondary);
       border-top: 1px solid var(--border);
     }
-    .req-table tr:hover td { background: var(--primary-light); }
-
-    /* ── 工作流程圖 ── */
-    .flow {
-      display: flex; align-items: center;
-      gap: 0; flex-wrap: wrap;
-      background: var(--surface);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 28px 32px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-    }
-    .flow-item {
-      text-align: center;
-      flex: 1; min-width: 120px;
-    }
-    .flow-icon {
-      width: 56px; height: 56px;
-      background: var(--primary-light);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      margin: 0 auto 10px;
-    }
-    .flow-title {
-      font-size: 14px; font-weight: 700;
-      color: var(--text); margin-bottom: 4px;
-    }
-    .flow-desc {
-      font-size: 12px; color: var(--text-secondary);
-    }
-    .flow-arrow {
-      font-size: 22px; color: var(--primary);
-      padding: 0 12px; flex-shrink: 0;
-    }
+    .diff-table-wrap tr:hover td { background: var(--primary-light); }
+    .diff-table-wrap td:first-child { font-weight: 600; color: var(--text); }
 
     /* ── 案例卡片 ── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
     .case-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -355,109 +765,87 @@
     }
     .case-card:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+    }
+    .case-card.last-solo {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      margin: 0 auto;
+      width: 100%;
     }
     .case-header {
       display: flex; align-items: flex-start;
       justify-content: space-between; gap: 12px;
       margin-bottom: 12px;
     }
-    .case-icon { font-size: 32px; }
+    .case-icon { font-size: 34px; }
     .case-badge {
       font-size: 11px; font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
+      padding: 3px 10px; border-radius: 20px;
       white-space: nowrap;
     }
     .badge-easy { background: #d4f7e7; color: #0d6e3f; }
-    .badge-medium { background: #fff3cd; color: #856404; }
     .badge-advanced { background: #ffe0e0; color: #8b1a1a; }
     [data-theme="dark"] .badge-easy { background: #0d3d24; color: #4ade80; }
-    [data-theme="dark"] .badge-medium { background: #3d2d00; color: #fbbf24; }
     [data-theme="dark"] .badge-advanced { background: #3d0000; color: #f87171; }
-    .case-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .case-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .case-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .case-card .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
 
-    /* ── Info Box ── */
-    .info-box {
-      background: var(--primary-light);
-      border-left: 4px solid var(--primary);
-      border-radius: 0 12px 12px 0;
-      padding: 14px 18px;
-      margin: 16px 0;
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-    .info-box strong { color: var(--primary); }
-
-    /* ── Tip Box ── */
-    .tip-box {
-      background: #fff8e1;
-      border-left: 4px solid #ffb300;
-      border-radius: 0 12px 12px 0;
-      padding: 14px 18px;
-      margin: 16px 0;
-      font-size: 14px;
-      color: #5a4000;
-      line-height: 1.65;
-    }
-    [data-theme="dark"] .tip-box {
-      background: #2d2000;
-      color: #ffd54f;
-    }
-
-    /* ── Hamburger (mobile) ── */
+    /* ── 漢堡選單 ── */
     #hamburger {
       display: none;
       position: fixed; top: 14px; left: 14px; z-index: 200;
       background: var(--primary);
       color: white;
       border: none; border-radius: 10px;
-      width: 40px; height: 40px;
+      width: 42px; height: 42px;
       font-size: 18px; cursor: pointer;
       align-items: center; justify-content: center;
     }
     .sidebar-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45);
       z-index: 90;
     }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
       #hamburger { display: flex; }
-      #sidebar {
-        transform: translateX(-100%);
-      }
-      #sidebar.open {
-        transform: translateX(0);
-      }
+      #sidebar { transform: translateX(-100%); }
+      #sidebar.open { transform: translateX(0); }
       .sidebar-overlay.open { display: block; }
       #main {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 64px 20px 40px;
+        margin-left: 0; max-width: 100%;
+        padding: 70px 18px 40px;
       }
-      .flow { flex-direction: column; align-items: center; }
-      .flow-arrow { transform: rotate(90deg); }
+      .req-grid { grid-template-columns: 1fr; }
+      .card-grid-2 { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .ext-grid { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .case-card.last-solo { grid-column: auto; max-width: 100%; }
+      .flow-steps { flex-direction: column; align-items: center; }
+      .flow-step-arrow { transform: rotate(90deg); padding: 0; padding-right: 24px; }
+      .mockup-cols { height: auto; flex-direction: column; }
+      .mockup-col-left { width: 100%; min-width: 0; }
+      .mockup-col-right { width: 100%; min-width: 0; }
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 32px 0;
+      padding: 32px 0 20px;
       font-size: 13px;
       color: var(--text-secondary);
       border-top: 1px solid var(--border);
-      margin-top: 24px;
+      margin-top: 16px;
     }
   </style>
 </head>
 <body>
 
-<!-- Hamburger (mobile) -->
+<!-- 漢堡選單（手機） -->
 <button id="hamburger" onclick="toggleSidebar()" aria-label="開啟導覽">☰</button>
 <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
 
@@ -466,7 +854,7 @@
   <div class="sidebar-header">
     <div class="sidebar-brand">
       <div class="brand-icon">AG</div>
-      <div class="brand-name">Google Antigravity<br>教學指南</div>
+      <div class="brand-name">Google Antigravity<br>媒體工作者指南</div>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
       🌙 切換深色模式
@@ -475,16 +863,32 @@
   <nav>
     <div class="nav-label">課程目錄</div>
     <a href="#install" onclick="closeSidebar()">
-      <span class="nav-num">1</span> 軟體安裝
+      <span class="nav-emoji">🔽</span> 軟體安裝
+      <span class="nav-num">1</span>
     </a>
     <a href="#interface" onclick="closeSidebar()">
-      <span class="nav-num">2</span> 操作介面介紹
+      <span class="nav-emoji">🖥️</span> 操作介面
+      <span class="nav-num">2</span>
+    </a>
+    <a href="#extensions" onclick="closeSidebar()">
+      <span class="nav-emoji">🧩</span> 延伸模組
+      <span class="nav-num">3</span>
+    </a>
+    <a href="#rules" onclick="closeSidebar()">
+      <span class="nav-emoji">⚙️</span> Rules 設定
+      <span class="nav-num">4</span>
+    </a>
+    <a href="#workflows" onclick="closeSidebar()">
+      <span class="nav-emoji">⚙️</span> Workflows 設定
+      <span class="nav-num">5</span>
     </a>
     <a href="#skills" onclick="closeSidebar()">
-      <span class="nav-num">3</span> 安裝擴充模式
+      <span class="nav-emoji">🛠️</span> Skills 進階
+      <span class="nav-num">6</span>
     </a>
     <a href="#cases" onclick="closeSidebar()">
-      <span class="nav-num">4</span> 應用案例
+      <span class="nav-emoji">💡</span> 應用案例
+      <span class="nav-num">7</span>
     </a>
   </nav>
 </aside>
@@ -492,73 +896,75 @@
 <!-- 主內容 -->
 <main id="main">
 
-  <!-- Hero -->
+  <!-- Hero Banner -->
   <div class="hero">
-    <div class="hero-tag">Google AI 開發工具</div>
-    <h1>Google Antigravity<br>快速上手指南</h1>
-    <p>Google 全新 AI 代理開發平台，讓 AI 自主規劃、撰寫程式碼、執行測試——你只需描述需求。</p>
+    <div class="hero-tag">Google Antigravity × 媒體工作者教學指南</div>
+    <h1>用 AI 打造你的<br>內容生產力</h1>
+    <p>從安裝到實戰，一份專為媒體人設計的完整上手指南。寫文稿、產圖 Prompt、影片腳本、社群貼文，全部交給 AI。</p>
     <div class="hero-badges">
-      <span class="hero-badge">🆓 完全免費</span>
-      <span class="hero-badge">🤖 AI 自主代理</span>
-      <span class="hero-badge">🌐 瀏覽器整合</span>
-      <span class="hero-badge">⚡ Plan → Code → Test</span>
+      <span class="hero-badge">🏙️ 城邦媒體編輯</span>
+      <span class="hero-badge">✏️ 文字記者</span>
+      <span class="hero-badge">🎬 影音企劃</span>
     </div>
   </div>
 
   <!-- SECTION 1：軟體安裝 -->
   <section id="install" class="section">
     <div class="section-header">
-      <div class="section-icon">💿</div>
+      <div class="section-icon">🔽</div>
       <div>
-        <h2>SECTION 1：軟體安裝</h2>
+        <h2>軟體安裝</h2>
         <div class="section-sub">從下載到登入，5 分鐘完成</div>
       </div>
     </div>
 
-    <div class="req-table">
-      <table>
-        <thead>
-          <tr>
-            <th>系統需求</th>
-            <th>規格</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>作業系統</td><td>macOS 12+、Windows 10/11</td></tr>
-          <tr><td>瀏覽器</td><td>Google Chrome（建議最新版）</td></tr>
-          <tr><td>帳號</td><td>Google 帳號（免費）</td></tr>
-          <tr><td>網路</td><td>需要連線（AI 模型在雲端）</td></tr>
-        </tbody>
-      </table>
+    <!-- 系統需求小卡 2 欄 -->
+    <div class="req-grid">
+      <div class="req-card">
+        <div class="req-icon">🍎</div>
+        <div>
+          <h4>macOS</h4>
+          <p>macOS Monterey 12 以上<br>支援 Apple Silicon 及 Intel</p>
+        </div>
+      </div>
+      <div class="req-card">
+        <div class="req-icon">🪟</div>
+        <div>
+          <h4>Windows</h4>
+          <p>Windows 10（64-bit）以上<br>支援 x64 及 ARM64</p>
+        </div>
+      </div>
     </div>
 
+    <!-- 安裝步驟 -->
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
           <h3>前往官網下載</h3>
-          <p>開啟瀏覽器，前往 <a href="https://antigravity.google/" target="_blank">antigravity.google</a>，點選「Download」下載對應作業系統的安裝檔。</p>
+          <p>開啟瀏覽器，前往 <a href="https://antigravity.google/download" target="_blank">antigravity.google/download</a><br>
+          依你的電腦系統選擇版本：<strong>Apple Silicon</strong> / <strong>Intel</strong> / <strong>Windows x64</strong></p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
           <h3>執行安裝程式</h3>
-          <p><strong>macOS：</strong>開啟 <code>.dmg</code>，將 Antigravity 拖入應用程式資料夾。<br>
-          <strong>Windows：</strong>執行 <code>.exe</code> 安裝程式，依指示完成安裝。</p>
+          <p><strong>macOS：</strong>將下載的 <code>.dmg</code> 拖曳到 Applications 資料夾即完成安裝<br>
+          <strong>Windows：</strong>雙擊 <code>.exe</code> 安裝程式，依畫面指示完成安裝步驟</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
           <h3>登入 Google 帳號</h3>
-          <p>首次啟動時，點選「Sign in with Google」，授權使用你的 Google 帳號。完成後即可看到主介面，代表安裝成功。</p>
+          <p>首次啟動時選擇「<strong>Sign in with Google</strong>」，使用公司或個人 Google 帳號授權即可。無需額外付費。</p>
         </div>
       </div>
     </div>
 
-    <div class="tip-box">
-      💡 <strong>安裝完成確認：</strong>啟動後左側面板出現「Agent」控制區、中央有程式編輯器、右下角有瀏覽器面板，即表示一切正常。
+    <div class="success-box">
+      ✅ 安裝完成後，畫面會出現三欄式工作介面，代表成功啟動！
     </div>
   </section>
 
@@ -567,205 +973,561 @@
     <div class="section-header">
       <div class="section-icon">🖥️</div>
       <div>
-        <h2>SECTION 2：操作介面介紹</h2>
-        <div class="section-sub">三大核心區塊 + AI 工作流程</div>
+        <h2>操作介面介紹</h2>
+        <div class="section-sub">三欄式設計，左管檔案、中編文稿、右對話</div>
       </div>
     </div>
 
-    <div class="card-grid" style="margin-bottom: 24px;">
-      <div class="card">
-        <h3>📝 程式編輯器</h3>
-        <p>多檔案管理的核心工作區。AI 代理會在此直接撰寫、修改程式碼，支援語法高亮、即時 diff 預覽。</p>
+    <!-- 三欄 Mockup（純 CSS） -->
+    <div class="mockup-wrap">
+      <div class="mockup-titlebar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
       </div>
-      <div class="card">
-        <h3>⚙️ 終端機</h3>
-        <p>AI 代理執行指令的區域。自動安裝套件、執行腳本、查看輸出結果——全部在此完成，你可隨時介入。</p>
-      </div>
-      <div class="card">
-        <h3>🌐 瀏覽器面板</h3>
-        <p>整合 Chrome 的 UI 驗證區塊。AI 可自動截圖、點擊操作、讀取 Console，實現端對端測試。</p>
+      <div class="mockup-cols">
+        <!-- 左欄 -->
+        <div class="mockup-col-left">
+          <div class="col-label">📁 檔案總管</div>
+          <div class="mockup-file active">📄 article.md</div>
+          <div class="mockup-file">📄 script.md</div>
+          <div class="mockup-file">📁 images/</div>
+          <div class="mockup-file mockup-file-indent">🖼️ cover.jpg</div>
+          <div class="mockup-file mockup-file-indent">🖼️ chart.png</div>
+          <div class="mockup-file">📄 social.md</div>
+          <div class="mockup-file">📄 interview.md</div>
+        </div>
+        <!-- 中欄 -->
+        <div class="mockup-col-main">
+          <div class="col-label">✏️ 編輯區</div>
+          <div class="mockup-editor-line heading"># 智慧家電趨勢 2025</div>
+          <div class="mockup-editor-line">&nbsp;</div>
+          <div class="mockup-editor-line">## 前言</div>
+          <div class="mockup-editor-line">近年來，AI 的快速普及讓家電</div>
+          <div class="mockup-editor-line">產業進入全新的智慧化時代...</div>
+          <div class="mockup-editor-line">&nbsp;</div>
+          <div class="mockup-editor-line">## 三大趨勢</div>
+          <div class="mockup-editor-line gray">- 語音控制整合</div>
+          <div class="mockup-editor-line gray">- 能源自動管理</div>
+          <div class="mockup-editor-line gray">- 跨裝置協同<span class="mockup-cursor"></span></div>
+        </div>
+        <!-- 右欄 -->
+        <div class="mockup-col-right">
+          <div class="col-label">🤖 AI 對話區</div>
+          <div class="mockup-bubble user">請把前言改得更吸引人</div>
+          <div class="mockup-bubble ai">好的！我幫你重寫成更有故事感的開場，強調讀者的生活痛點...</div>
+          <div class="mockup-bubble user">字數控制在 80 字內</div>
+          <div class="mockup-bubble ai">已調整，現在是 76 字。需要再修改嗎？</div>
+        </div>
       </div>
     </div>
 
-    <p style="font-size:14px; font-weight:700; color:var(--text); margin-bottom:16px;">AI 代理工作流程</p>
-    <div class="flow">
-      <div class="flow-item">
-        <div class="flow-icon">📋</div>
-        <div class="flow-title">Plan</div>
-        <div class="flow-desc">描述需求<br>AI 分析拆解任務</div>
+    <!-- 三大區塊說明卡片 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>📁 左側：檔案總管</h3>
+        <ul>
+          <li>管理你的文稿資料夾</li>
+          <li>一鍵新增 / 開啟 .md 文稿</li>
+          <li>支援資料夾階層，文章、腳本分類存放</li>
+        </ul>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-icon">💻</div>
-        <div class="flow-title">Implement</div>
-        <div class="flow-desc">AI 自主撰寫程式<br>跨多個檔案操作</div>
+      <div class="card">
+        <h3>✏️ 中間：編輯區</h3>
+        <ul>
+          <li>撰寫與編輯文稿的主要區域</li>
+          <li>支援 Markdown 語法與即時預覽</li>
+          <li>AI 會直接將生成內容寫入此處</li>
+        </ul>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-icon">✅</div>
-        <div class="flow-title">Test</div>
-        <div class="flow-desc">自動啟動應用<br>驗證功能正確性</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-icon">🔄</div>
-        <div class="flow-title">Iterate</div>
-        <div class="flow-desc">根據結果自我修正<br>持續優化至完成</div>
+      <div class="card">
+        <h3>🤖 右側：AI 對話區</h3>
+        <ul>
+          <li>用自然語言下指令給 AI</li>
+          <li>提問、要求生成、修改文稿皆在此</li>
+          <li>對話記錄完整保留，可反覆調整</li>
+        </ul>
       </div>
     </div>
 
-    <div class="info-box">
-      <strong>🎯 核心概念：</strong>你是「導演」，AI 是「執行者」。只需用自然語言描述你要什麼，Antigravity 的代理會自動完成規劃、撰寫、測試的完整循環。
+    <!-- 操作流程橫向箭頭 -->
+    <div class="flow-steps">
+      <div class="flow-step-item">
+        <div class="flow-step-icon">📄</div>
+        <div class="flow-step-title">開啟文稿</div>
+      </div>
+      <div class="flow-step-arrow">→</div>
+      <div class="flow-step-item">
+        <div class="flow-step-icon">💬</div>
+        <div class="flow-step-title">對話下指令</div>
+      </div>
+      <div class="flow-step-arrow">→</div>
+      <div class="flow-step-item">
+        <div class="flow-step-icon">✍️</div>
+        <div class="flow-step-title">AI 寫入編輯區</div>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 3：安裝擴充模式 -->
-  <section id="skills" class="section">
+  <!-- SECTION 3：延伸模組安裝 -->
+  <section id="extensions" class="section">
     <div class="section-header">
       <div class="section-icon">🧩</div>
       <div>
-        <h2>SECTION 3：安裝擴充模式（Skills）</h2>
-        <div class="section-sub">用 Skills 讓 AI 學會你的工作方式</div>
+        <h2>延伸模組安裝</h2>
+        <div class="section-sub">精選 6 個內容創作者入門必裝模組</div>
       </div>
     </div>
 
-    <div class="info-box">
-      <strong>什麼是 Skills？</strong> Skills 是放在專案目錄裡的「技能包」，包含一個 <code>SKILL.md</code> 定義檔和相關資源。AI 代理會讀取它，理解你的特定工作流程、慣例或工具使用方式。
-    </div>
+    <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:20px;">
+      Antigravity 與 VS Code 共用相同的延伸模組生態，你可以安裝數千種工具來強化編輯體驗。以下是針對<strong>內容創作者</strong>精選的 6 個入門必裝模組。
+    </p>
 
-    <div class="steps" style="margin-bottom: 24px;">
+    <!-- 安裝步驟 -->
+    <div class="steps" style="margin-bottom:28px;">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <h3>在專案根目錄建立 Skills 資料夾</h3>
-          <p>在你的專案資料夾中建立 <code>.antigravity/skills/</code> 目錄結構。</p>
+          <h3>開啟延伸模組面板</h3>
+          <p>點擊左側欄的「Extensions」圖示（方塊圖案），或使用快捷鍵 <code>⌘⇧X</code>（Mac）/ <code>Ctrl+Shift+X</code>（Windows）</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h3>建立 SKILL.md 定義檔</h3>
-          <p>在 Skills 目錄中新增 <code>SKILL.md</code>，以 Markdown 格式描述這個技能的名稱、用途、觸發時機，以及 AI 應如何應用它。</p>
+          <h3>搜尋並安裝</h3>
+          <p>在搜尋框輸入下方的模組名稱，找到對應項目後點擊「<strong>Install</strong>」即開始安裝</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h3>設定 Rules & Workflows</h3>
-          <p>在 Antigravity 介面的「Editor」模式中，開啟 <strong>Rules</strong>（全域規則）和 <strong>Workflows</strong>（工作流程），設定 AI 代理在特定情境下的行為規範。</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h3>重新載入並測試</h3>
-          <p>儲存設定後，在對話框輸入指令，確認 AI 是否能依照 Skill 的定義執行對應任務。</p>
+          <h3>重新載入生效</h3>
+          <p>安裝完成後，若出現「Reload Required」提示，點擊後即可正常使用</p>
         </div>
       </div>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <h3>📋 Rules（規則）</h3>
-        <p>設定 AI 全域的行為準則，例如：「永遠使用繁體中文」、「程式碼風格遵循 ESLint」。</p>
+    <!-- 推薦模組卡片 2 欄 -->
+    <div class="ext-grid">
+      <div class="ext-card">
+        <div class="ext-icon">🌏</div>
+        <div class="ext-info">
+          <div class="ext-name">Chinese (Traditional) Language Pack</div>
+          <div class="ext-desc">將整個操作介面切換為繁體中文，消除語言障礙</div>
+          <span class="ext-tag required">必裝</span>
+        </div>
       </div>
-      <div class="card">
-        <h3>🔁 Workflows（工作流程）</h3>
-        <p>定義特定任務的標準流程，讓 AI 在你說「開始 XX 任務」時，按既定步驟自動執行。</p>
+      <div class="ext-card">
+        <div class="ext-icon">📝</div>
+        <div class="ext-info">
+          <div class="ext-name">Markdown All in One</div>
+          <div class="ext-desc">寫文稿、排版、即時預覽一鍵搞定，內容編輯神器</div>
+          <span class="ext-tag required">必裝</span>
+        </div>
+      </div>
+      <div class="ext-card">
+        <div class="ext-icon">🔢</div>
+        <div class="ext-info">
+          <div class="ext-name">Word Count</div>
+          <div class="ext-desc">狀態列即時顯示字數，適合有字數要求的稿件工作</div>
+          <span class="ext-tag recommend">推薦</span>
+        </div>
+      </div>
+      <div class="ext-card">
+        <div class="ext-icon">🖼️</div>
+        <div class="ext-info">
+          <div class="ext-name">Paste Image</div>
+          <div class="ext-desc">截圖直接貼進文稿，自動儲存圖片檔案到指定資料夾</div>
+          <span class="ext-tag recommend">推薦</span>
+        </div>
+      </div>
+      <div class="ext-card">
+        <div class="ext-icon">✨</div>
+        <div class="ext-info">
+          <div class="ext-name">Prettier</div>
+          <div class="ext-desc">自動整理格式，讓文件排版乾淨一致，存檔即自動執行</div>
+          <span class="ext-tag recommend">推薦</span>
+        </div>
+      </div>
+      <div class="ext-card">
+        <div class="ext-icon">✅</div>
+        <div class="ext-info">
+          <div class="ext-name">Todo Tree</div>
+          <div class="ext-desc">在稿件中標記「待補充」「待確認」，一鍵總覽所有待辦</div>
+          <span class="ext-tag advanced">進階</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4：應用案例 -->
+  <!-- SECTION 4：Rules 設定 -->
+  <section id="rules" class="section">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <div>
+        <h2>基本設定：Rules</h2>
+        <div class="section-sub">給 AI 的長期身份卡，設定一次永久生效</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      Rules 是你給 AI 的<strong>長期身份卡</strong>——告訴它你是誰、你的文章風格、輸出格式要求。設定一次，每次對話都會自動套用，不需要每次重新說明。
+    </div>
+
+    <!-- 設定位置說明 -->
+    <div class="step-path">
+      <div class="step-path-item"><strong>右側 AI 對話區</strong></div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item">點右上角 <strong>齒輪圖示</strong></div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item">選「<strong>Rules</strong>」</div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item"><strong>貼入你的規則</strong>後儲存</div>
+    </div>
+
+    <!-- Rules 範例 code block -->
+    <p style="font-size:14px; font-weight:700; margin-bottom:10px;">範例 Rules（可直接複製使用）：</p>
+    <div class="code-block-wrap">
+      <pre class="code-block" id="rules-code"># 我的身份
+我是城邦文化的內容編輯，主要負責科技與生活類文章。
+
+# 語氣風格
+- 親切、白話，避免技術術語
+- 段落簡短，每段不超過 4 句
+- 適合 25-40 歲讀者閱讀
+
+# 輸出格式
+- 語言：繁體中文
+- 段落分明，重點可用條列式
+- 標題使用 ## 語法
+- 圖片說明文字：每張圖 1 句，不超過 20 字</pre>
+      <button class="copy-btn" onclick="copyCode('rules-code', this)">複製</button>
+    </div>
+
+    <div class="tip-box">
+      💡 小技巧：Rules 不需要完美，先從「語言：繁體中文」開始，之後邊用邊補充即可。
+    </div>
+  </section>
+
+  <!-- SECTION 5：Workflows 設定 -->
+  <section id="workflows" class="section">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <div>
+        <h2>基本設定：Workflows</h2>
+        <div class="section-sub">把常用多步驟指令存成一鍵範本</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      Workflows 是把你最常用的多步驟指令，存成一個<strong>一鍵啟動的範本</strong>。免得每次都要重新打一長串指令，輸入觸發詞即可執行完整流程。
+    </div>
+
+    <!-- Rules vs Workflows 比較 -->
+    <div class="compare-grid">
+      <div class="compare-card primary">
+        <div class="compare-card-badge">📌 Rules</div>
+        <h3>永遠有效</h3>
+        <ul>
+          <li>一次設定，每次對話自動套用</li>
+          <li>適合：身份、語氣、格式等固定規則</li>
+          <li>不需要主動啟動，背景持續運作</li>
+        </ul>
+      </div>
+      <div class="compare-card accent">
+        <div class="compare-card-badge">▶️ Workflows</div>
+        <h3>需要時才啟動</h3>
+        <ul>
+          <li>輸入觸發詞，執行多步驟任務</li>
+          <li>適合：產稿、改稿、格式轉換等流程</li>
+          <li>可設定多個 Workflows 分工使用</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 設定位置說明 -->
+    <div class="step-path">
+      <div class="step-path-item"><strong>右側 AI 對話區</strong></div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item"><strong>齒輪圖示</strong></div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item">選「<strong>Workflows</strong>」</div>
+      <div class="step-path-arrow">→</div>
+      <div class="step-path-item">點「<strong>新增範本</strong>」填入設定</div>
+    </div>
+
+    <!-- 3 個 Workflow 展開卡片 -->
+    <div class="workflow-card" onclick="toggleWorkflow(this)">
+      <div class="workflow-header">
+        <div class="workflow-title-row">
+          <span class="workflow-icon">📝</span>
+          <span class="workflow-title">產出文章草稿</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="workflow-trigger">/draft</span>
+          <span class="workflow-chevron">▾</span>
+        </div>
+      </div>
+      <div class="workflow-body">
+        <ol>
+          <li><span class="wf-num">1</span>詢問文章標題與 3 個關鍵字</li>
+          <li><span class="wf-num">2</span>自動產出 600 字大綱 + 草稿</li>
+          <li><span class="wf-num">3</span>詢問是否需要調整語氣或字數</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="workflow-card" onclick="toggleWorkflow(this)">
+      <div class="workflow-header">
+        <div class="workflow-title-row">
+          <span class="workflow-icon">🎬</span>
+          <span class="workflow-title">影片腳本產生器</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="workflow-trigger">/script</span>
+          <span class="workflow-chevron">▾</span>
+        </div>
+      </div>
+      <div class="workflow-body">
+        <ol>
+          <li><span class="wf-num">1</span>詢問主題與影片時長（分鐘）</li>
+          <li><span class="wf-num">2</span>產出分鏡大綱 + 各段旁白腳本</li>
+          <li><span class="wf-num">3</span>最後附上建議 B-roll 畫面清單</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="workflow-card" onclick="toggleWorkflow(this)">
+      <div class="workflow-header">
+        <div class="workflow-title-row">
+          <span class="workflow-icon">📱</span>
+          <span class="workflow-title">社群貼文改寫</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="workflow-trigger">/social</span>
+          <span class="workflow-chevron">▾</span>
+        </div>
+      </div>
+      <div class="workflow-body">
+        <ol>
+          <li><span class="wf-num">1</span>請貼入原始文章段落</li>
+          <li><span class="wf-num">2</span>分別產出 IG（150字）、FB（300字）、Threads（100字）版本</li>
+          <li><span class="wf-num">3</span>附上 3 個建議 hashtag</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6：Skills 進階設定 -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <div class="section-icon">🛠️</div>
+      <div>
+        <h2>Skills 進階設定</h2>
+        <div class="section-sub">擴充 AI 能力，讓它學會特定領域專業技能</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      Skills 是比 Workflows 更進一步的<strong>能力擴充包</strong>，可以讓 AI 學會特定領域的專業技能，例如 SEO 優化、圖片描述生成、資料結構化等。
+    </div>
+
+    <!-- Workflows vs Skills 差異表 -->
+    <div class="diff-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>Workflows</th>
+            <th>Skills</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>設定難度</td>
+            <td>⭐ 簡單</td>
+            <td>⭐⭐ 中等</td>
+          </tr>
+          <tr>
+            <td>適合對象</td>
+            <td>所有人</td>
+            <td>進階使用者</td>
+          </tr>
+          <tr>
+            <td>功能範圍</td>
+            <td>固定流程範本</td>
+            <td>擴充 AI 能力</td>
+          </tr>
+          <tr>
+            <td>安裝方式</td>
+            <td>設定介面填寫</td>
+            <td>安裝 Skill 檔案</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 安裝步驟 -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>開啟 Skills 面板</h3>
+          <p>在右側 AI 對話區，點擊上方「<strong>Skills</strong>」圖示，進入 Skills 管理介面</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>瀏覽官方目錄</h3>
+          <p>瀏覽或搜尋官方 Skills 目錄，依你的工作需求找到對應的技能包</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>安裝並確認權限</h3>
+          <p>點「<strong>Add Skill</strong>」，確認所需存取權限後完成安裝，重新載入即可使用</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      💡 建議先熟悉 Rules 和 Workflows 後，再來探索 Skills。大部分內容工作者靠前兩項就足夠了！
+    </div>
+  </section>
+
+  <!-- SECTION 7：應用案例 -->
   <section id="cases" class="section">
     <div class="section-header">
-      <div class="section-icon">🚀</div>
+      <div class="section-icon">💡</div>
       <div>
-        <h2>SECTION 4：應用案例</h2>
-        <div class="section-sub">從基礎到進階，看看 AI 能幫你做什麼</div>
+        <h2>應用案例</h2>
+        <div class="section-sub">5 個媒體工作者最常用的實際情境</div>
       </div>
     </div>
 
-    <div class="card-grid">
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">📝</div>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>多檔案專案自動生成</h3>
-        <p>描述一個網頁應用的需求，AI 自動建立 HTML、CSS、JS 等完整檔案結構，並確保各檔案相互連結正確。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">🌐</div>
-          <span class="case-badge badge-medium">進階</span>
-        </div>
-        <h3>網頁 UI 自動測試</h3>
-        <p>讓 AI 開啟瀏覽器面板，自動點擊按鈕、填寫表單、截圖驗證，取代手動 QA 測試流程。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">🔄</div>
-          <span class="case-badge badge-medium">進階</span>
-        </div>
-        <h3>n8n 自動化腳本撰寫</h3>
-        <p>描述你的 n8n workflow 邏輯，讓 AI 幫你撰寫 JSON 設定檔、API 呼叫腳本或文件說明。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">📊</div>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>報表 Dashboard 建立</h3>
-        <p>上傳數據，讓 AI 生成帶有圖表的 HTML Dashboard，30 秒內完成過去需要半天的視覺化工作。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">✍️</div>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>編輯工作流程自動化</h3>
-        <p>針對媒體/出版場景，AI 協助撰寫文章摘要、SEO 標題、社群貼文——符合品牌風格的批量內容生成。</p>
-      </div>
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-icon">🔍</div>
-          <span class="case-badge badge-advanced">高階</span>
-        </div>
-        <h3>程式碼審查與重構</h3>
-        <p>貼上現有程式碼，讓 AI 找出潛在 bug、安全漏洞，並提供重構建議，附上逐行說明。</p>
-      </div>
-    </div>
+    <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:24px;">
+      以下是媒體內容工作者最常用的 5 個實際情境，直接複製指令就能用！
+    </p>
 
-    <div class="tip-box" style="margin-top: 24px;">
-      💡 <strong>效率套利原則：</strong>先找出你每天重複最多的任務，把它「翻譯」成 AI 指令。一旦 AI 學會，這件事就從「1小時」變成「1分鐘」。
+    <div class="cases-grid">
+
+      <!-- 案例 1 -->
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-icon">📝</span>
+          <span class="case-badge badge-easy">入門</span>
+        </div>
+        <h3>文章草稿產生</h3>
+        <p class="case-desc">你有標題和幾個關鍵字，需要快速產出初稿</p>
+        <div class="code-block-wrap">
+          <pre class="code-block" id="case1-code">請幫我寫一篇關於「智慧家電趨勢」的文章草稿，
+目標讀者是 30-40 歲的科技愛好者，
+字數約 800 字，語氣輕鬆親切。</pre>
+          <button class="copy-btn" onclick="copyCode('case1-code', this)">複製</button>
+        </div>
+      </div>
+
+      <!-- 案例 2 -->
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-icon">🖼️</span>
+          <span class="case-badge badge-easy">入門</span>
+        </div>
+        <h3>產圖提示詞撰寫</h3>
+        <p class="case-desc">需要為文章配圖，但不知道怎麼寫英文 Prompt</p>
+        <div class="code-block-wrap">
+          <pre class="code-block" id="case2-code">我需要一張文章配圖，畫面是：
+台北街頭夜景，有霓虹燈和人群，
+氣氛溫暖現代。
+請幫我轉換成 Midjourney 的英文 Prompt。</pre>
+          <button class="copy-btn" onclick="copyCode('case2-code', this)">複製</button>
+        </div>
+      </div>
+
+      <!-- 案例 3 -->
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-icon">🎬</span>
+          <span class="case-badge badge-easy">入門</span>
+        </div>
+        <h3>影片腳本生成</h3>
+        <p class="case-desc">需要產出 3 分鐘短影音的完整腳本</p>
+        <div class="code-block-wrap">
+          <pre class="code-block" id="case3-code">請幫我寫一個 3 分鐘 YouTube 短影片的腳本，
+主題是「5 個提升工作效率的 AI 工具」，
+包含開場白、各段重點、結尾 CTA。</pre>
+          <button class="copy-btn" onclick="copyCode('case3-code', this)">複製</button>
+        </div>
+      </div>
+
+      <!-- 案例 4 -->
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-icon">📱</span>
+          <span class="case-badge badge-easy">入門</span>
+        </div>
+        <h3>社群貼文改寫</h3>
+        <p class="case-desc">把長文章改寫成各平台適用的短貼文</p>
+        <div class="code-block-wrap">
+          <pre class="code-block" id="case4-code">請把以下這段文章改寫成 3 個版本：
+1. IG 貼文（150字以內，加 emoji）
+2. Facebook 貼文（300字，正式一點）
+3. Threads（100字，輕鬆口語）
+
+[貼入文章段落]</pre>
+          <button class="copy-btn" onclick="copyCode('case4-code', this)">複製</button>
+        </div>
+      </div>
+
+      <!-- 案例 5（最後一張置中） -->
+      <div class="case-card last-solo">
+        <div class="case-header">
+          <span class="case-icon">📋</span>
+          <span class="case-badge badge-advanced">進階</span>
+        </div>
+        <h3>採訪大綱規劃</h3>
+        <p class="case-desc">採訪前需要快速整理問題清單</p>
+        <div class="code-block-wrap">
+          <pre class="code-block" id="case5-code">我要採訪一位台灣 AI 新創公司的創辦人，
+公司主要做企業自動化流程，
+請幫我規劃 10 個採訪問題，
+包含公司背景、產品特色、市場競爭、未來展望。</pre>
+          <button class="copy-btn" onclick="copyCode('case5-code', this)">複製</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <footer>
-    <p>Google Antigravity 教學指南 · 製作：Eric Li · <a href="https://antigravity.google/" target="_blank">官方網站 ↗</a></p>
+    © 2025 城邦文化 × Google Antigravity 教學指南　｜　內部教學用途
   </footer>
 </main>
 
 <script>
   // ── 深色模式 ──
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  updateThemeBtn(savedTheme);
-
+  const themeBtn = document.getElementById('themeBtn');
+  function applyTheme(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    themeBtn.textContent = dark ? '☀️ 切換淺色模式' : '🌙 切換深色模式';
+  }
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateThemeBtn(next);
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = !isDark;
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+    applyTheme(next);
   }
-  function updateThemeBtn(theme) {
-    const btn = document.getElementById('themeBtn');
-    if (btn) btn.textContent = theme === 'dark' ? '☀️ 切換淺色模式' : '🌙 切換深色模式';
-  }
+  // 初始化主題
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved ? saved === 'dark' : prefersDark);
+  })();
 
-  // ── 側邊欄（手機） ──
+  // ── 漢堡選單 ──
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('open');
@@ -775,21 +1537,39 @@
     document.getElementById('overlay').classList.remove('open');
   }
 
-  // ── 側邊欄 Active Link ──
-  const navLinks = document.querySelectorAll('nav a');
+  // ── 側邊欄 Active 追蹤 ──
   const sections = document.querySelectorAll('.section');
-
+  const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if (link) link.classList.add('active');
       }
     });
-  }, { threshold: 0.4 });
-
+  }, { rootMargin: '-20% 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
+
+  // ── 複製按鈕 ──
+  function copyCode(preId, btn) {
+    const text = document.getElementById(preId).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '已複製！';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  }
+
+  // ── Workflow 展開/收合 ──
+  function toggleWorkflow(card) {
+    card.classList.toggle('open');
+  }
 </script>
 </body>
 </html>
