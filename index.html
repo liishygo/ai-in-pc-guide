@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Antigravity × 媒體工作者教學指南</title>
+  <title>Google Antigravity × 媒體工作者指南</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -749,7 +749,7 @@
     .diff-table-wrap tr:hover td { background: var(--primary-light); }
     .diff-table-wrap td:first-child { font-weight: 600; color: var(--text); }
 
-    /* ── 案例卡片 ── */
+    /* ── 應用情境卡片 ── */
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -767,29 +767,26 @@
       box-shadow: var(--shadow-hover);
       transform: translateY(-4px);
     }
-    .case-card.last-solo {
-      grid-column: 1 / -1;
-      max-width: 50%;
-      margin: 0 auto;
-      width: 100%;
+    .scenario-img { font-size: 48px; margin-bottom: 14px; display: block; }
+    .scenario-files { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .scenario-file {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--bg); border-radius: 10px; padding: 10px 14px;
     }
-    .case-header {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 12px;
-      margin-bottom: 12px;
+    .scenario-file-icon { font-size: 20px; margin-top: 1px; flex-shrink: 0; }
+    .scenario-file-name { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+    .scenario-file-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .scenario-workflow {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 16px; flex-wrap: wrap;
     }
-    .case-icon { font-size: 34px; }
-    .case-badge {
-      font-size: 11px; font-weight: 700;
-      padding: 3px 10px; border-radius: 20px;
-      white-space: nowrap;
+    .scenario-wf-step {
+      background: var(--primary-light); color: var(--primary);
+      font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px;
     }
-    .badge-easy { background: #d4f7e7; color: #0d6e3f; }
-    .badge-advanced { background: #ffe0e0; color: #8b1a1a; }
-    [data-theme="dark"] .badge-easy { background: #0d3d24; color: #4ade80; }
-    [data-theme="dark"] .badge-advanced { background: #3d0000; color: #f87171; }
-    .case-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .case-card .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
+    .scenario-wf-arrow { color: var(--text-secondary); font-size: 16px; }
+    .case-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .case-card .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 4px; }
 
     /* ── 漢堡選單 ── */
     #hamburger {
@@ -924,25 +921,29 @@
       <span class="nav-emoji">🖥️</span> 操作介面
       <span class="nav-num">2</span>
     </a>
+    <a href="#markdown" onclick="closeSidebar()">
+      <span class="nav-emoji">📄</span> Markdown
+      <span class="nav-num">3</span>
+    </a>
     <a href="#extensions" onclick="closeSidebar()">
       <span class="nav-emoji">🧩</span> 延伸模組
-      <span class="nav-num">3</span>
+      <span class="nav-num">4</span>
+    </a>
+    <a href="#cases" onclick="closeSidebar()">
+      <span class="nav-emoji">🎯</span> 應用情境
+      <span class="nav-num">5</span>
     </a>
     <a href="#rules" onclick="closeSidebar()">
       <span class="nav-emoji">⚙️</span> Rules 設定
-      <span class="nav-num">4</span>
+      <span class="nav-num">6</span>
     </a>
     <a href="#workflows" onclick="closeSidebar()">
       <span class="nav-emoji">⚙️</span> Workflows 設定
-      <span class="nav-num">5</span>
+      <span class="nav-num">7</span>
     </a>
     <a href="#skills" onclick="closeSidebar()">
       <span class="nav-emoji">🛠️</span> Skills 進階
-      <span class="nav-num">6</span>
-    </a>
-    <a href="#cases" onclick="closeSidebar()">
-      <span class="nav-emoji">🎯</span> 應用案例
-      <span class="nav-num">7</span>
+      <span class="nav-num">8</span>
     </a>
   </nav>
 </aside>
@@ -952,9 +953,9 @@
 
   <!-- Hero Banner -->
   <div class="hero">
-    <div class="hero-tag">Google Antigravity × 媒體工作者教學指南</div>
+    <div class="hero-tag">Google Antigravity × 媒體工作者指南</div>
     <h1>讓 AI 住進你的電腦<br>從聊天到共事</h1>
-    <p>不再只是問 AI 問題——讓它直接讀你的檔案、寫你的稿件、打造你的專屬工作流程。這是一份專為媒體人設計的完整上手指南。</p>
+    <p>不再只是問 AI 問題——讓它直接讀你的檔案、寫你的稿件、打造你的專屬工作流程。</p>
     <div class="hero-badges">
       <span class="hero-badge">🏙️ 城邦媒體編輯</span>
       <span class="hero-badge">✏️ 文字記者</span>
@@ -968,7 +969,6 @@
       <div class="section-icon">💡</div>
       <div>
         <h2>為什麼要在電腦端用 AI？</h2>
-        <div class="section-sub">從「問 AI 問題」升級到「讓 AI 在你電腦裡幹活」</div>
       </div>
     </div>
 
@@ -982,14 +982,14 @@
           <tr>
             <th>比較項目</th>
             <th>瀏覽器 AI（ChatGPT、Gemini）</th>
-            <th>電腦端 AI（Antigravity）</th>
+            <th>電腦端 AI（Antigravity、Claude Code、Windsurf）</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>本質</td>
             <td>一問一答的對話</td>
-            <td>AI 持續在你電腦上執行任務</td>
+            <td>AI 可以在你的電腦裡執行任務</td>
           </tr>
           <tr>
             <td>檔案存取</td>
@@ -1004,7 +1004,7 @@
           <tr>
             <td>工作模式</td>
             <td>以對話為核心，每個專案只有一組預設指令，主要優化對話的輸出品質</td>
-            <td>以工作流程為核心，透過 Rules、Workflows、Skills 組合出完整流程，涵蓋對話、計畫、執行等多個階段</td>
+            <td>以工作流程為核心，制訂規則、固定流程、技能、工具等等，涵蓋對話、計畫、執行、初步成果、修改、最終結果等多個階段</td>
           </tr>
           <tr>
             <td>產出方式</td>
@@ -1014,30 +1014,12 @@
           <tr>
             <td>資料歸屬</td>
             <td>檔案上傳到雲端才能使用</td>
-            <td>資料不離開你的電腦，不受檔案大小限制</td>
+            <td>資料不離開你的電腦，檔案很多時，會很方便</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="highlight-quote">
-      「瀏覽器 AI 像問顧問意見；電腦端 AI 像雇了一個人在你電腦裡幹活。」
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>🔄 從聊天到共事</h3>
-        <p>不再是一次性的問答，而是建立可累積的工作流程——你教 AI 一次規則，它每次都記得。</p>
-      </div>
-      <div class="card">
-        <h3>🏗️ 不只用工具，還能造工具</h3>
-        <p>AI 不只幫你寫稿，還能幫你打造專屬的自動化工具：改稿流程、格式轉換器、批次處理腳本。</p>
-      </div>
-      <div class="card">
-        <h3>🎯 你指揮，它執行</h3>
-        <p>你是策劃者，AI 是執行者。用自然語言下指令，AI 直接在你的檔案上操作，不需要複製貼上。</p>
-      </div>
-    </div>
   </section>
 
   <!-- SECTION 1：軟體安裝 -->
@@ -1161,7 +1143,7 @@
         <ul>
           <li>管理你的文稿資料夾</li>
           <li>一鍵新增 / 開啟 .md 文稿</li>
-          <li>支援資料夾階層，文章、腳本分類存放</li>
+          <li>支援資料夾階層，稿件、圖片、影片等等，分類存放</li>
         </ul>
       </div>
       <div class="card">
@@ -1182,37 +1164,62 @@
       </div>
     </div>
 
-    <!-- 操作流程橫向箭頭 -->
-    <div class="flow-steps">
-      <div class="flow-step-item">
-        <div class="flow-step-icon">📄</div>
-        <div class="flow-step-title">開啟文稿</div>
+  </section>
+
+  <!-- SECTION 3：Markdown -->
+  <section id="markdown" class="section">
+    <div class="section-header">
+      <div class="section-icon">📄</div>
+      <div>
+        <h2>AI 最愛的檔案格式 Markdown</h2>
+        <div class="section-sub">用 AI 的人，一定要認識這個格式</div>
       </div>
-      <div class="flow-step-arrow">→</div>
-      <div class="flow-step-item">
-        <div class="flow-step-icon">💬</div>
-        <div class="flow-step-title">對話下指令</div>
+    </div>
+
+    <div class="info-box">
+      Markdown 是 AI 最愛讀的格式——<strong>純文字、檔案小</strong>，還能設定標題、列點、重點標示。最重要的是：餵 Markdown 給 AI，可以大幅節省 token 消耗。
+    </div>
+
+    <div class="card-grid" style="margin-top: 20px;">
+      <div class="card">
+        <h3>✍️ 寫起來像這樣</h3>
+        <pre style="font-size:13px; line-height:1.8; background:var(--code-bg); padding:14px; border-radius:10px; overflow-x:auto;"># 文章標題
+
+## 第一段落
+這是內文，可以 **粗體** 或 *斜體*。
+
+- 重點一
+- 重點二
+- 重點三</pre>
       </div>
-      <div class="flow-step-arrow">→</div>
-      <div class="flow-step-item">
-        <div class="flow-step-icon">✍️</div>
-        <div class="flow-step-title">AI 寫入編輯區</div>
+      <div class="card">
+        <h3>💡 為什麼要用 Markdown？</h3>
+        <ul>
+          <li>AI 可以直接理解結構，不需要解析排版</li>
+          <li>比 Word / PDF 消耗更少 token</li>
+          <li>純文字，任何裝置都能開啟</li>
+          <li>Antigravity 原生支援，有即時預覽</li>
+        </ul>
       </div>
+    </div>
+
+    <div class="tip-box" style="margin-top: 20px;">
+      📌 你有 Word、PDF 要給 AI 分析？先轉成 Markdown，再貼給 AI，效果更好、花費更少。
     </div>
   </section>
 
-  <!-- SECTION 3：延伸模組安裝 -->
+  <!-- SECTION 4：延伸模組安裝 -->
   <section id="extensions" class="section">
     <div class="section-header">
       <div class="section-icon">🧩</div>
       <div>
         <h2>延伸模組安裝</h2>
-        <div class="section-sub">精選 6 個內容創作者入門必裝模組</div>
+        <div class="section-sub">精選 4 個內容創作者入門必裝模組</div>
       </div>
     </div>
 
     <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:20px;">
-      Antigravity 與 VS Code 共用相同的延伸模組生態，你可以安裝數千種工具來強化編輯體驗。以下是針對<strong>內容創作者</strong>精選的 6 個入門必裝模組。
+      Antigravity 與 VS Code 共用相同的延伸模組生態，你可以安裝數千種工具來強化編輯體驗。以下是針對<strong>內容創作者</strong>精選的 4 個入門必裝模組。
     </p>
 
     <!-- 安裝步驟 -->
@@ -1227,12 +1234,29 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
+          <h3>更改 Marketplace 網址</h3>
+          <p>按一下「<strong>Antigravity settings</strong>」，將以下兩個欄位填入對應網址：</p>
+          <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px;">
+            <div style="background:var(--code-bg); border-radius:8px; padding:10px 14px;">
+              <div style="font-size:12px; color:var(--text-secondary); margin-bottom:4px;">Marketplace Item URL</div>
+              <code style="font-size:13px; word-break:break-all;">https://marketplace.visualstudio.com/items</code>
+            </div>
+            <div style="background:var(--code-bg); border-radius:8px; padding:10px 14px;">
+              <div style="font-size:12px; color:var(--text-secondary); margin-bottom:4px;">Marketplace Gallery URL</div>
+              <code style="font-size:13px; word-break:break-all;">https://marketplace.visualstudio.com/_apis/public/gallery</code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
           <h3>搜尋並安裝</h3>
           <p>在搜尋框輸入下方的模組名稱，找到對應項目後點擊「<strong>Install</strong>」即開始安裝</p>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num">4</div>
         <div class="step-content">
           <h3>重新載入生效</h3>
           <p>安裝完成後，若出現「Reload Required」提示，點擊後即可正常使用</p>
@@ -1251,18 +1275,18 @@
         </div>
       </div>
       <div class="ext-card">
-        <div class="ext-icon">📝</div>
+        <div class="ext-icon">✍️</div>
         <div class="ext-info">
-          <div class="ext-name">Markdown All in One</div>
-          <div class="ext-desc">寫文稿、排版、即時預覽一鍵搞定，內容編輯神器</div>
+          <div class="ext-name">Mark Sharp</div>
+          <div class="ext-desc">Markdown 即時預覽、所見即所得編輯，寫稿體驗大幅提升</div>
           <span class="ext-tag required">必裝</span>
         </div>
       </div>
       <div class="ext-card">
-        <div class="ext-icon">🔢</div>
+        <div class="ext-icon">📂</div>
         <div class="ext-info">
-          <div class="ext-name">Word Count</div>
-          <div class="ext-desc">狀態列即時顯示字數，適合有字數要求的稿件工作</div>
+          <div class="ext-name">Office Viewer</div>
+          <div class="ext-desc">直接在編輯器裡開啟 Word、Excel、PDF，不需切換應用程式</div>
           <span class="ext-tag recommend">推薦</span>
         </div>
       </div>
@@ -1274,26 +1298,85 @@
           <span class="ext-tag recommend">推薦</span>
         </div>
       </div>
-      <div class="ext-card">
-        <div class="ext-icon">✨</div>
-        <div class="ext-info">
-          <div class="ext-name">Prettier</div>
-          <div class="ext-desc">自動整理格式，讓文件排版乾淨一致，存檔即自動執行</div>
-          <span class="ext-tag recommend">推薦</span>
-        </div>
-      </div>
-      <div class="ext-card">
-        <div class="ext-icon">✅</div>
-        <div class="ext-info">
-          <div class="ext-name">Todo Tree</div>
-          <div class="ext-desc">在稿件中標記「待補充」「待確認」，一鍵總覽所有待辦</div>
-          <span class="ext-tag advanced">進階</span>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- SECTION 4：Rules 設定 -->
+  <!-- SECTION 4：應用情境 -->
+  <section id="cases" class="section">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div>
+        <h2>應用情境</h2>
+        <div class="section-sub">2 個實際工作情境示範</div>
+      </div>
+    </div>
+
+    <div class="cases-grid">
+
+      <!-- 情境 1 -->
+      <div class="case-card">
+        <span class="scenario-img">🪪</span>
+        <h3>讓 AI 認識你</h3>
+        <p class="case-desc">在開始工作之前，先建立幾個基本的 .md 檔，放在專案資料夾裡，讓 AI 了解你是誰、你怎麼寫作。</p>
+        <div class="scenario-files">
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📄</span>
+            <div>
+              <div class="scenario-file-name">關於我.md</div>
+              <div class="scenario-file-desc">你的身份、職稱、負責的內容類型</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📄</span>
+            <div>
+              <div class="scenario-file-name">我的寫作風格.md</div>
+              <div class="scenario-file-desc">語氣偏好、常用句型、禁用詞彙</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📄</span>
+            <div>
+              <div class="scenario-file-name">參考資料.md</div>
+              <div class="scenario-file-desc">常用的資料來源、素材連結</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 情境 2 -->
+      <div class="case-card">
+        <span class="scenario-img">🧵</span>
+        <h3>Threads 貼文助手</h3>
+        <p class="case-desc">用資料夾把素材和寫稿分開管理，提供參考資料給 AI，透過對話逐步產出貼文，再讓 AI 協助改稿。</p>
+        <div class="scenario-files">
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📁</span>
+            <div>
+              <div class="scenario-file-name">參考資料／</div>
+              <div class="scenario-file-desc">新聞連結、截圖、品牌素材等</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📁</span>
+            <div>
+              <div class="scenario-file-name">寫稿／</div>
+              <div class="scenario-file-desc">每篇貼文草稿、修改版本紀錄</div>
+            </div>
+          </div>
+        </div>
+        <div class="scenario-workflow">
+          <div class="scenario-wf-step">提供參考資料</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">對話寫稿</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">AI 改稿</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5：Rules 設定（原 4） -->
   <section id="rules" class="section">
     <div class="section-header">
       <div class="section-icon">⚙️</div>
@@ -1527,110 +1610,6 @@
 
     <div class="tip-box">
       💡 建議先熟悉 Rules 和 Workflows 後，再來探索 Skills。大部分內容工作者靠前兩項就足夠了！
-    </div>
-  </section>
-
-  <!-- SECTION 7：應用案例 -->
-  <section id="cases" class="section">
-    <div class="section-header">
-      <div class="section-icon">💡</div>
-      <div>
-        <h2>應用案例</h2>
-        <div class="section-sub">5 個媒體工作者最常用的實際情境</div>
-      </div>
-    </div>
-
-    <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:24px;">
-      以下是媒體內容工作者最常用的 5 個實際情境，直接複製指令就能用！
-    </p>
-
-    <div class="cases-grid">
-
-      <!-- 案例 1 -->
-      <div class="case-card">
-        <div class="case-header">
-          <span class="case-icon">📝</span>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>文章草稿產生</h3>
-        <p class="case-desc">你有標題和幾個關鍵字，需要快速產出初稿</p>
-        <div class="code-block-wrap">
-          <pre class="code-block" id="case1-code">請幫我寫一篇關於「智慧家電趨勢」的文章草稿，
-目標讀者是 30-40 歲的科技愛好者，
-字數約 800 字，語氣輕鬆親切。</pre>
-          <button class="copy-btn" onclick="copyCode('case1-code', this)">複製</button>
-        </div>
-      </div>
-
-      <!-- 案例 2 -->
-      <div class="case-card">
-        <div class="case-header">
-          <span class="case-icon">🖼️</span>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>產圖提示詞撰寫</h3>
-        <p class="case-desc">需要為文章配圖，但不知道怎麼寫英文 Prompt</p>
-        <div class="code-block-wrap">
-          <pre class="code-block" id="case2-code">我需要一張文章配圖，畫面是：
-台北街頭夜景，有霓虹燈和人群，
-氣氛溫暖現代。
-請幫我轉換成 Midjourney 的英文 Prompt。</pre>
-          <button class="copy-btn" onclick="copyCode('case2-code', this)">複製</button>
-        </div>
-      </div>
-
-      <!-- 案例 3 -->
-      <div class="case-card">
-        <div class="case-header">
-          <span class="case-icon">🎬</span>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>影片腳本生成</h3>
-        <p class="case-desc">需要產出 3 分鐘短影音的完整腳本</p>
-        <div class="code-block-wrap">
-          <pre class="code-block" id="case3-code">請幫我寫一個 3 分鐘 YouTube 短影片的腳本，
-主題是「5 個提升工作效率的 AI 工具」，
-包含開場白、各段重點、結尾 CTA。</pre>
-          <button class="copy-btn" onclick="copyCode('case3-code', this)">複製</button>
-        </div>
-      </div>
-
-      <!-- 案例 4 -->
-      <div class="case-card">
-        <div class="case-header">
-          <span class="case-icon">📱</span>
-          <span class="case-badge badge-easy">入門</span>
-        </div>
-        <h3>社群貼文改寫</h3>
-        <p class="case-desc">把長文章改寫成各平台適用的短貼文</p>
-        <div class="code-block-wrap">
-          <pre class="code-block" id="case4-code">請把以下這段文章改寫成 3 個版本：
-1. IG 貼文（150字以內，加 emoji）
-2. Facebook 貼文（300字，正式一點）
-3. Threads（100字，輕鬆口語）
-
-[貼入文章段落]</pre>
-          <button class="copy-btn" onclick="copyCode('case4-code', this)">複製</button>
-        </div>
-      </div>
-
-      <!-- 案例 5（最後一張置中） -->
-      <div class="case-card last-solo">
-        <div class="case-header">
-          <span class="case-icon">📋</span>
-          <span class="case-badge badge-advanced">進階</span>
-        </div>
-        <h3>採訪大綱規劃</h3>
-        <p class="case-desc">採訪前需要快速整理問題清單</p>
-        <div class="code-block-wrap">
-          <pre class="code-block" id="case5-code">我要採訪一位台灣 AI 新創公司的創辦人，
-公司主要做企業自動化流程，
-請幫我規劃 10 個採訪問題，
-包含公司背景、產品特色、市場競爭、未來展望。</pre>
-          <button class="copy-btn" onclick="copyCode('case5-code', this)">複製</button>
-        </div>
-      </div>
-
     </div>
   </section>
 
