@@ -88,7 +88,7 @@
       background: linear-gradient(135deg, #4285f4, #6c5ce7);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 15px; font-weight: 800;
+      color: white; font-size: 20px; font-weight: 800;
       flex-shrink: 0;
     }
     .sidebar-brand .brand-name {
@@ -901,8 +901,8 @@
 <aside id="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-brand">
-      <div class="brand-icon">AG</div>
-      <div class="brand-name">Google Antigravity<br>媒體工作者指南</div>
+      <div class="brand-icon">🤖</div>
+      <div class="brand-name">讓 AI 住進你的電腦<br>從聊天到共事</div>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
       🌙 切換深色模式
@@ -911,39 +911,30 @@
   <nav>
     <div class="nav-label">課程目錄</div>
     <a href="#why-desktop" onclick="closeSidebar()">
-      <span class="nav-emoji">💡</span> 為什麼在電腦端？
+      <span class="nav-emoji">💡</span> 為什麼要在電腦端用 AI？
     </a>
     <a href="#install" onclick="closeSidebar()">
-      <span class="nav-emoji">🔽</span> 軟體安裝
+      <span class="nav-emoji">🔽</span> 軟體安裝 - 以 Antigravity 為例
       <span class="nav-num">1</span>
     </a>
     <a href="#interface" onclick="closeSidebar()">
-      <span class="nav-emoji">🖥️</span> 操作介面
+      <span class="nav-emoji">🖥️</span> 操作介面介紹-以 Antigravity 為例
       <span class="nav-num">2</span>
     </a>
     <a href="#markdown" onclick="closeSidebar()">
-      <span class="nav-emoji">📄</span> Markdown
+      <span class="nav-emoji">📄</span> AI 最愛的檔案格式 Markdown
       <span class="nav-num">3</span>
     </a>
     <a href="#extensions" onclick="closeSidebar()">
-      <span class="nav-emoji">🧩</span> 延伸模組
+      <span class="nav-emoji">🧩</span> 延伸模組安裝
       <span class="nav-num">4</span>
     </a>
     <a href="#cases" onclick="closeSidebar()">
       <span class="nav-emoji">🎯</span> 應用情境
       <span class="nav-num">5</span>
     </a>
-    <a href="#rules" onclick="closeSidebar()">
-      <span class="nav-emoji">⚙️</span> Rules 設定
-      <span class="nav-num">6</span>
-    </a>
-    <a href="#workflows" onclick="closeSidebar()">
-      <span class="nav-emoji">⚙️</span> Workflows 設定
-      <span class="nav-num">7</span>
-    </a>
-    <a href="#skills" onclick="closeSidebar()">
-      <span class="nav-emoji">🛠️</span> Skills 進階
-      <span class="nav-num">8</span>
+    <a href="#references" onclick="closeSidebar()">
+      <span class="nav-emoji">📚</span> 參考資料
     </a>
   </nav>
 </aside>
@@ -953,7 +944,6 @@
 
   <!-- Hero Banner -->
   <div class="hero">
-    <div class="hero-tag">Google Antigravity × 媒體工作者指南</div>
     <h1>讓 AI 住進你的電腦<br>從聊天到共事</h1>
     <p>不再只是問 AI 問題——讓它直接讀你的檔案、寫你的稿件、打造你的專屬工作流程。</p>
     <div class="hero-badges">
@@ -981,30 +971,30 @@
         <thead>
           <tr>
             <th>比較項目</th>
-            <th>瀏覽器 AI（ChatGPT、Gemini）</th>
-            <th>電腦端 AI（Antigravity、Claude Code、Windsurf）</th>
+            <th>瀏覽器 AI：ChatGPT、Gemini</th>
+            <th>電腦端 AI：Antigravity(Gemini)、Claude CoWork、Codex(ChatGPT)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>本質</td>
             <td>一問一答的對話</td>
-            <td>AI 可以在你的電腦裡執行任務</td>
+            <td>AI 可以在你的電腦裡執行任務，多個AI可互相合作</td>
           </tr>
           <tr>
             <td>檔案存取</td>
-            <td>手動上傳 / 下載</td>
+            <td>手動上傳 / 下載、複製 / 貼上</td>
             <td>直接讀寫你電腦裡的檔案</td>
           </tr>
           <tr>
             <td>工作上下文</td>
-            <td>只看得到你貼進對話的內容</td>
+            <td>只看得到你貼進對話的內容或上傳的檔案</td>
             <td>自動看見整個資料夾：所有檔案、架構、彼此關聯</td>
           </tr>
           <tr>
             <td>工作模式</td>
-            <td>以對話為核心，每個專案只有一組預設指令，主要優化對話的輸出品質</td>
-            <td>以工作流程為核心，制訂規則、固定流程、技能、工具等等，涵蓋對話、計畫、執行、初步成果、修改、最終結果等多個階段</td>
+            <td>以「對話」為主，提供答案後，由使用者自己整理或執行</td>
+            <td>以「做事」為主，運用規則、流程、技能、工具等等，進行對話、計畫、執行、修改、交付成果等等多個階段</td>
           </tr>
           <tr>
             <td>產出方式</td>
@@ -1016,18 +1006,23 @@
             <td>檔案上傳到雲端才能使用</td>
             <td>資料不離開你的電腦，檔案很多時，會很方便</td>
           </tr>
+          <tr>
+            <td>功能擴展</td>
+            <td>只能用廠商給你的功能，想要的功能慢慢等</td>
+            <td>有新的需求、需要新的功能，叫 AI 從研究、選擇、安裝到使用自行完成</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
   </section>
 
-  <!-- SECTION 1：軟體安裝 -->
+  <!-- SECTION 1：軟體安裝 - 以 Antigravity 為例 -->
   <section id="install" class="section">
     <div class="section-header">
       <div class="section-icon">🔽</div>
       <div>
-        <h2>軟體安裝</h2>
+        <h2>軟體安裝 - 以 Antigravity 為例</h2>
         <div class="section-sub">從下載到登入，5 分鐘完成</div>
       </div>
     </div>
@@ -1082,12 +1077,12 @@
     </div>
   </section>
 
-  <!-- SECTION 2：操作介面介紹 -->
+  <!-- SECTION 2：操作介面介紹-以 Antigravity 為例 -->
   <section id="interface" class="section">
     <div class="section-header">
       <div class="section-icon">🖥️</div>
       <div>
-        <h2>操作介面介紹</h2>
+        <h2>操作介面介紹-以 Antigravity 為例</h2>
         <div class="section-sub">三欄式設計，左管檔案、中編文稿、右對話</div>
       </div>
     </div>
@@ -1204,7 +1199,7 @@
     </div>
 
     <div class="tip-box" style="margin-top: 20px;">
-      📌 你有 Word、PDF 要給 AI 分析？先轉成 Markdown，再貼給 AI，效果更好、花費更少。
+      📌 你有 Word、PDF 要給 AI 分析？先轉成 Markdown，轉檔工作交給 AI 就對了。
     </div>
   </section>
 
@@ -1325,7 +1320,7 @@
       <div class="section-icon">🎯</div>
       <div>
         <h2>應用情境</h2>
-        <div class="section-sub">3 個實際工作情境示範</div>
+        <div class="section-sub">8 個實際工作情境示範</div>
       </div>
     </div>
 
@@ -1417,6 +1412,115 @@
         </div>
       </div>
 
+      <!-- 情境 4 -->
+      <div class="case-card">
+        <span class="scenario-img">🤝</span>
+        <h3>讓不同 AI 在同一個專案合作</h3>
+        <p class="case-desc">同一個資料夾，Antigravity（Gemini）、Claude CoWork、Codex（ChatGPT）都可以打開。各有強項，依需求切換使用，共用同一份檔案與上下文。</p>
+        <div class="scenario-workflow">
+          <div class="scenario-wf-step">用 Antigravity 起草</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">切換 Claude CoWork 深度修改</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">成果存回同一資料夾</div>
+        </div>
+      </div>
+
+      <!-- 情境 5 -->
+      <div class="case-card">
+        <span class="scenario-img">🔄</span>
+        <h3>流程中讓 AI 完成不同階段的工作</h3>
+        <p class="case-desc">把一個完整工作流程拆成多個階段，每個階段交給 AI 完成，再把成果傳給下一個階段，你只負責把關與調整。</p>
+        <div class="scenario-workflow">
+          <div class="scenario-wf-step">AI 蒐集資料 / 整理素材</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">AI 產出初稿</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">AI 修改 / 格式化 / 輸出成品</div>
+        </div>
+      </div>
+
+      <!-- 情境 6 -->
+      <div class="case-card">
+        <span class="scenario-img">👑</span>
+        <h3>AI 大哥召喚 AI 小弟做事</h3>
+        <p class="case-desc">由一個 AI（如 Claude）擔任總指揮，負責規劃與判斷；再指派其他 AI 工具（如 Gemini）執行特定子任務，例如上網找資料或生成圖片。</p>
+        <div class="scenario-workflow">
+          <div class="scenario-wf-step">Claude 規劃任務</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">Gemini 上網找資料 / 生圖</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">Claude 判斷結果、完成實作</div>
+        </div>
+      </div>
+
+      <!-- 情境 7 -->
+      <div class="case-card">
+        <span class="scenario-img">🔗</span>
+        <h3>引用外部資料、文件</h3>
+        <p class="case-desc">電腦端 AI 不只能讀本機檔案，還可以串接外部服務，讓 AI 在規劃、整理、產出時引用更豐富的資料來源。</p>
+        <div class="scenario-files">
+          <div class="scenario-file">
+            <span class="scenario-file-icon">🔍</span>
+            <div>
+              <div class="scenario-file-name">NotebookLM</div>
+              <div class="scenario-file-desc">引用外部文件，深度分析特定資料來源</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">☁️</span>
+            <div>
+              <div class="scenario-file-name">Google Drive</div>
+              <div class="scenario-file-desc">直接取用雲端硬碟裡的文件</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">🌐</span>
+            <div>
+              <div class="scenario-file-name">Perplexity</div>
+              <div class="scenario-file-desc">使用搜尋引擎取得即時網路資訊</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 情境 8 -->
+      <div class="case-card">
+        <span class="scenario-img">🧠</span>
+        <h3>打造個人的知識 wiki、NotebookLM，讓 AI 幫你維護</h3>
+        <p class="case-desc">用一個 CLAUDE.md 檔案寫下規則，定義資料夾結構、操作流程與禁止事項，AI 就能自動讀取來源文件、建立 Wiki 頁面、更新索引與日誌。</p>
+        <div class="scenario-files">
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📁</span>
+            <div>
+              <div class="scenario-file-name">sources／</div>
+              <div class="scenario-file-desc">原始資料區，AI 只讀不改</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📁</span>
+            <div>
+              <div class="scenario-file-name">wiki／</div>
+              <div class="scenario-file-desc">AI 的工作區，負責建立與更新所有頁面</div>
+            </div>
+          </div>
+          <div class="scenario-file">
+            <span class="scenario-file-icon">📄</span>
+            <div>
+              <div class="scenario-file-name">CLAUDE.md</div>
+              <div class="scenario-file-desc">規則書：定義 AI 的角色、操作步驟與禁止事項</div>
+            </div>
+          </div>
+        </div>
+        <div class="scenario-workflow">
+          <div class="scenario-wf-step">丟一篇文章進 sources／</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">AI 自動整理成 wiki 頁面並更新索引</div>
+          <div class="scenario-wf-arrow">→</div>
+          <div class="scenario-wf-step">隨時向 AI 提問，AI 從知識庫引用回答</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1446,248 +1550,6 @@
         <span style="display:block; color:var(--text-muted); font-size:13px; margin-top:4px;">github.com/slavingia</span>
       </li>
     </ul>
-  </section>
-
-  <!-- 建置中標題 -->
-  <div style="padding: 32px 40px 8px; text-align:center;">
-    <p style="font-size:28px; font-weight:800; color:var(--text); letter-spacing:0.01em;">🚧 以下建置中…</p>
-  </div>
-
-  <!-- SECTION 5：Rules 設定（原 4） -->
-  <section id="rules" class="section">
-    <div class="section-header">
-      <div class="section-icon">⚙️</div>
-      <div>
-        <h2>基本設定：Rules</h2>
-        <div class="section-sub">給 AI 的長期身份卡，設定一次永久生效</div>
-      </div>
-    </div>
-
-    <div class="info-box">
-      Rules 是你給 AI 的<strong>長期身份卡</strong>——告訴它你是誰、你的文章風格、輸出格式要求。設定一次，每次對話都會自動套用，不需要每次重新說明。
-    </div>
-
-    <!-- 設定位置說明 -->
-    <div class="step-path">
-      <div class="step-path-item"><strong>右側 AI 對話區</strong></div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item">點右上角 <strong>齒輪圖示</strong></div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item">選「<strong>Rules</strong>」</div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item"><strong>貼入你的規則</strong>後儲存</div>
-    </div>
-
-    <!-- Rules 範例 code block -->
-    <p style="font-size:14px; font-weight:700; margin-bottom:10px;">範例 Rules（可直接複製使用）：</p>
-    <div class="code-block-wrap">
-      <pre class="code-block" id="rules-code"># 我的身份
-我是媒體產業的內容編輯，主要負責科技與生活類文章。
-
-# 語氣風格
-- 親切、白話，避免技術術語
-- 段落簡短，每段不超過 4 句
-- 適合 25-40 歲讀者閱讀
-
-# 輸出格式
-- 語言：繁體中文
-- 段落分明，重點可用條列式
-- 標題使用 ## 語法
-- 圖片說明文字：每張圖 1 句，不超過 20 字</pre>
-      <button class="copy-btn" onclick="copyCode('rules-code', this)">複製</button>
-    </div>
-
-    <div class="tip-box">
-      💡 小技巧：Rules 不需要完美，先從「語言：繁體中文」開始，之後邊用邊補充即可。
-    </div>
-  </section>
-
-  <!-- SECTION 5：Workflows 設定 -->
-  <section id="workflows" class="section">
-    <div class="section-header">
-      <div class="section-icon">⚙️</div>
-      <div>
-        <h2>基本設定：Workflows</h2>
-        <div class="section-sub">把常用多步驟指令存成一鍵範本</div>
-      </div>
-    </div>
-
-    <div class="info-box">
-      Workflows 是把你最常用的多步驟指令，存成一個<strong>一鍵啟動的範本</strong>。免得每次都要重新打一長串指令，輸入觸發詞即可執行完整流程。
-    </div>
-
-    <!-- Rules vs Workflows 比較 -->
-    <div class="compare-grid">
-      <div class="compare-card primary">
-        <div class="compare-card-badge">📌 Rules</div>
-        <h3>永遠有效</h3>
-        <ul>
-          <li>一次設定，每次對話自動套用</li>
-          <li>適合：身份、語氣、格式等固定規則</li>
-          <li>不需要主動啟動，背景持續運作</li>
-        </ul>
-      </div>
-      <div class="compare-card accent">
-        <div class="compare-card-badge">▶️ Workflows</div>
-        <h3>需要時才啟動</h3>
-        <ul>
-          <li>輸入觸發詞，執行多步驟任務</li>
-          <li>適合：產稿、改稿、格式轉換等流程</li>
-          <li>可設定多個 Workflows 分工使用</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 設定位置說明 -->
-    <div class="step-path">
-      <div class="step-path-item"><strong>右側 AI 對話區</strong></div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item"><strong>齒輪圖示</strong></div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item">選「<strong>Workflows</strong>」</div>
-      <div class="step-path-arrow">→</div>
-      <div class="step-path-item">點「<strong>新增範本</strong>」填入設定</div>
-    </div>
-
-    <!-- 3 個 Workflow 展開卡片 -->
-    <div class="workflow-card" onclick="toggleWorkflow(this)">
-      <div class="workflow-header">
-        <div class="workflow-title-row">
-          <span class="workflow-icon">📝</span>
-          <span class="workflow-title">產出文章草稿</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="workflow-trigger">/draft</span>
-          <span class="workflow-chevron">▾</span>
-        </div>
-      </div>
-      <div class="workflow-body">
-        <ol>
-          <li><span class="wf-num">1</span>詢問文章標題與 3 個關鍵字</li>
-          <li><span class="wf-num">2</span>自動產出 600 字大綱 + 草稿</li>
-          <li><span class="wf-num">3</span>詢問是否需要調整語氣或字數</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="workflow-card" onclick="toggleWorkflow(this)">
-      <div class="workflow-header">
-        <div class="workflow-title-row">
-          <span class="workflow-icon">🎬</span>
-          <span class="workflow-title">影片腳本產生器</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="workflow-trigger">/script</span>
-          <span class="workflow-chevron">▾</span>
-        </div>
-      </div>
-      <div class="workflow-body">
-        <ol>
-          <li><span class="wf-num">1</span>詢問主題與影片時長（分鐘）</li>
-          <li><span class="wf-num">2</span>產出分鏡大綱 + 各段旁白腳本</li>
-          <li><span class="wf-num">3</span>最後附上建議 B-roll 畫面清單</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="workflow-card" onclick="toggleWorkflow(this)">
-      <div class="workflow-header">
-        <div class="workflow-title-row">
-          <span class="workflow-icon">📱</span>
-          <span class="workflow-title">社群貼文改寫</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="workflow-trigger">/social</span>
-          <span class="workflow-chevron">▾</span>
-        </div>
-      </div>
-      <div class="workflow-body">
-        <ol>
-          <li><span class="wf-num">1</span>請貼入原始文章段落</li>
-          <li><span class="wf-num">2</span>分別產出 IG（150字）、FB（300字）、Threads（100字）版本</li>
-          <li><span class="wf-num">3</span>附上 3 個建議 hashtag</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 6：Skills 進階設定 -->
-  <section id="skills" class="section">
-    <div class="section-header">
-      <div class="section-icon">🛠️</div>
-      <div>
-        <h2>Skills 進階設定</h2>
-        <div class="section-sub">擴充 AI 能力，讓它學會特定領域專業技能</div>
-      </div>
-    </div>
-
-    <div class="info-box">
-      Skills 是比 Workflows 更進一步的<strong>能力擴充包</strong>，可以讓 AI 學會特定領域的專業技能，例如 SEO 優化、圖片描述生成、資料結構化等。
-    </div>
-
-    <!-- Workflows vs Skills 差異表 -->
-    <div class="diff-table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>項目</th>
-            <th>Workflows</th>
-            <th>Skills</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>設定難度</td>
-            <td>⭐ 簡單</td>
-            <td>⭐⭐ 中等</td>
-          </tr>
-          <tr>
-            <td>適合對象</td>
-            <td>所有人</td>
-            <td>進階使用者</td>
-          </tr>
-          <tr>
-            <td>功能範圍</td>
-            <td>固定流程範本</td>
-            <td>擴充 AI 能力</td>
-          </tr>
-          <tr>
-            <td>安裝方式</td>
-            <td>設定介面填寫</td>
-            <td>安裝 Skill 檔案</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 安裝步驟 -->
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>開啟 Skills 面板</h3>
-          <p>在右側 AI 對話區，點擊上方「<strong>Skills</strong>」圖示，進入 Skills 管理介面</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h3>瀏覽官方目錄</h3>
-          <p>瀏覽或搜尋官方 Skills 目錄，依你的工作需求找到對應的技能包</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>安裝並確認權限</h3>
-          <p>點「<strong>Add Skill</strong>」，確認所需存取權限後完成安裝，重新載入即可使用</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tip-box">
-      💡 建議先熟悉 Rules 和 Workflows 後，再來探索 Skills。大部分內容工作者靠前兩項就足夠了！
-    </div>
   </section>
 
   <footer>
